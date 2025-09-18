@@ -23,7 +23,7 @@ timestamp_file = "last_timestamp.txt"
 def download_youtube_url(url):
     print(f"Downloaden: {url}")
     try:
-        subprocess.run(["yt-dlp", url], check=True)
+        subprocess.run(["yt-dlp", "--no-mtime", "--embed-metadata", "--embed-thumbnail", url], check=True)
         return True
     except Exception as e:
         print(f"Fout bij downloaden: {e}")
